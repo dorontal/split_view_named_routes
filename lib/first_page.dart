@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import './page_scaffold.dart';
 
 class FirstPage extends StatelessWidget {
+  const FirstPage({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return PageScaffold(

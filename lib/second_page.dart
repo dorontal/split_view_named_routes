@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import './page_scaffold.dart';
 
 class SecondPage extends StatelessWidget {
+  const SecondPage({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
