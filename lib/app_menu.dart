@@ -5,16 +5,15 @@ import './split_view.dart';
 import './first_page.dart';
 import './second_page.dart';
 
+Widget _makeSplitViewPage(Widget page) => SplitView(
+      menu: const AppMenu(),
+      content: page,
+    );
+
 // a map of ("page name", WidgetBuilder) pairs
 final appRoutes = <String, WidgetBuilder>{
-  'p1': (_) => SplitView(
-        menu: const AppMenu(),
-        content: FirstPage(),
-      ),
-  'p2': (_) => SplitView(
-        menu: const AppMenu(),
-        content: SecondPage(),
-      ),
+  'p1': (_) => _makeSplitViewPage(const FirstPage()),
+  'p2': (_) => _makeSplitViewPage(const SecondPage()),
 };
 
 // 1. extend from ConsumerWidget
