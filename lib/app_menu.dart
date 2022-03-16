@@ -1,10 +1,9 @@
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:split_view_example_flutter/split_view.dart';
+import './split_view.dart';
 import './first_page.dart';
 import './second_page.dart';
-import './split_view.dart';
 
 // a map of ("page name", WidgetBuilder) pairs
 final appRoutes = <String, WidgetBuilder>{
@@ -20,6 +19,9 @@ final appRoutes = <String, WidgetBuilder>{
 
 // 1. extend from ConsumerWidget
 class AppMenu extends ConsumerWidget {
+  const AppMenu({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
