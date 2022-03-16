@@ -8,11 +8,11 @@ import './second_page.dart';
 // a map of ("page name", WidgetBuilder) pairs
 final appRoutes = <String, WidgetBuilder>{
   'p1': (_) => SplitView(
-        menu: AppMenu(),
+        menu: const AppMenu(),
         content: FirstPage(),
       ),
   'p2': (_) => SplitView(
-        menu: AppMenu(),
+        menu: const AppMenu(),
         content: SecondPage(),
       ),
 };
@@ -46,7 +46,6 @@ class PageListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final selectedpageRoutePath = ModalRoute.of(context)!.settings.name;
-
     return ListTile(
       // show a check icon if the page is currently selected
       // note: we use Opacity to ensure that all tiles have a leading widget
@@ -59,11 +58,6 @@ class PageListTile extends StatelessWidget {
       // onTap: () => Navigator.pushNamed(context, pageRoutePath),
       onTap: () {
         dev.log('tapped on $pageRoutePath');
-
-        // SplitView(
-        //   menu: AppMenu(),
-        //   content: appRoutes[pageRoutePath]!(context),
-        // );
         Navigator.pushNamed(context, pageRoutePath);
       },
     );
