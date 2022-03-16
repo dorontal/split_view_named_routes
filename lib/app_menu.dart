@@ -1,54 +1,34 @@
+import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:split_view_example_flutter/split_view.dart';
 import './first_page.dart';
 import './second_page.dart';
+import './split_view.dart';
 
 // a map of ("page name", WidgetBuilder) pairs
-final _availablePages = <String, WidgetBuilder>{
-  'First Page': (_) => FirstPage(),
-  'Second Page': (_) => SecondPage(),
+final appRoutes = <String, WidgetBuilder>{
+  'p1': (_) => SplitView(
+        menu: AppMenu(),
+        content: FirstPage(),
+      ),
+  'p2': (_) => SplitView(
+        menu: AppMenu(),
+        content: SecondPage(),
+      ),
 };
-
-// make this a `StateProvider` so we can change its value
-final selectedPageNameProvider = StateProvider<String>((ref) {
-  // default value
-  return _availablePages.keys.first;
-});
-
-final selectedPageBuilderProvider = Provider<WidgetBuilder>((ref) {
-  // watch for state changes inside selectedPageNameProvider
-  final selectedPageKey = ref.watch(selectedPageNameProvider.state).state;
-  // return the WidgetBuilder using the key as index
-  return _availablePages[selectedPageKey]!;
-});
 
 // 1. extend from ConsumerWidget
 class AppMenu extends ConsumerWidget {
-  void _selectPage(BuildContext context, WidgetRef ref, String pageName) {
-    if (ref.read(selectedPageNameProvider.state).state != pageName) {
-      ref.read(selectedPageNameProvider.state).state = pageName;
-      // dismiss the drawer of the ancestor Scaffold if we have one
-      if (Scaffold.maybeOf(context)?.hasDrawer ?? false) {
-        Navigator.of(context).pop();
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // 2. watch the provider's state
-    final selectedPageName = ref.watch(selectedPageNameProvider.state).state;
     return Scaffold(
-      appBar: AppBar(title: Text('Menu')),
       body: ListView(
         children: <Widget>[
-          for (var pageName in _availablePages.keys)
+          for (var pageRoutePath in appRoutes.keys)
             PageListTile(
-              // 3. pass the selectedPageName as an argument
-              selectedPageName: selectedPageName,
-              pageName: pageName,
-              onPressed: () => _selectPage(context, ref, pageName),
-            ),
+                // 3. pass the selectedpageRoutePath as an argument
+                pageRoutePath: pageRoutePath),
         ],
       ),
     );
@@ -58,25 +38,32 @@ class AppMenu extends ConsumerWidget {
 class PageListTile extends StatelessWidget {
   const PageListTile({
     Key? key,
-    this.selectedPageName,
-    required this.pageName,
-    this.onPressed,
+    required this.pageRoutePath,
   }) : super(key: key);
-  final String? selectedPageName;
-  final String pageName;
-  final VoidCallback? onPressed;
+  final String pageRoutePath;
   @override
   Widget build(BuildContext context) {
+    final selectedpageRoutePath = ModalRoute.of(context)!.settings.name;
+
     return ListTile(
       // show a check icon if the page is currently selected
       // note: we use Opacity to ensure that all tiles have a leading widget
       // and all the titles are left-aligned
       leading: Opacity(
-        opacity: selectedPageName == pageName ? 1.0 : 0.0,
+        opacity: selectedpageRoutePath == pageRoutePath ? 1.0 : 0.0,
         child: Icon(Icons.check),
       ),
-      title: Text(pageName),
-      onTap: onPressed,
+      title: Text(pageRoutePath),
+      // onTap: () => Navigator.pushNamed(context, pageRoutePath),
+      onTap: () {
+        dev.log('tapped on $pageRoutePath');
+
+        // SplitView(
+        //   menu: AppMenu(),
+        //   content: appRoutes[pageRoutePath]!(context),
+        // );
+        Navigator.pushNamed(context, pageRoutePath);
+      },
     );
   }
 }

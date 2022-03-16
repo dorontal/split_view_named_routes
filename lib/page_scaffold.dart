@@ -24,10 +24,10 @@ class PageScaffold extends StatelessWidget {
         // 3. add a non-null leading argument if we have a drawer
         leading: hasDrawer
             ? IconButton(
-                icon: const Icon(Icons.menu),
+                icon: Icon(Icons.menu),
                 // 4. open the drawer if we have one
                 onPressed:
-                    hasDrawer ? () => ancestorScaffold.openDrawer() : null,
+                    hasDrawer ? () => ancestorScaffold!.openDrawer() : null,
               )
             : null,
         title: Text(title),
