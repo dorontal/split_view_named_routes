@@ -51,7 +51,7 @@ class PageListTile extends StatelessWidget {
       // and all the titles are left-aligned
       leading: Opacity(
         opacity: selectedpageRoutePath == pageRoutePath ? 1.0 : 0.0,
-        child: Icon(Icons.check),
+        child: const Icon(Icons.check),
       ),
       title: Text(pageRoutePath),
       // onTap: () => Navigator.pushNamed(context, pageRoutePath),
