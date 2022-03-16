@@ -1,6 +1,5 @@
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import './split_view.dart';
 import './first_page.dart';
 import './second_page.dart';
@@ -17,12 +16,12 @@ final appRoutes = <String, WidgetBuilder>{
 };
 
 // 1. extend from ConsumerWidget
-class AppMenu extends ConsumerWidget {
+class AppMenu extends StatelessWidget {
   const AppMenu({
     Key? key,
   }) : super(key: key);
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: <Widget>[
