@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.deepOrange,
       ),
       routes: appRoutes,
-      initialRoute: 'p1',
+      initialRoute: 'page1',
     );
   }
 }

@@ -11,8 +11,8 @@ Widget _makeSplitViewPage(Widget page) => SplitView(
 
 // a map of ("page name", WidgetBuilder) pairs
 final appRoutes = <String, WidgetBuilder>{
-  'p1': (_) => _makeSplitViewPage(const FirstPage()),
-  'p2': (_) => _makeSplitViewPage(const SecondPage()),
+  'page1': (_) => _makeSplitViewPage(const FirstPage()),
+  'page2': (_) => _makeSplitViewPage(const SecondPage()),
 };
 
 // 1. extend from ConsumerWidget
