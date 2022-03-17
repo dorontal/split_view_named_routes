@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/page_scaffold.dart';
+import '../widgets/split_view_scaffold.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({
@@ -7,7 +7,7 @@ class SecondPage extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return PageScaffold(
+    return SplitViewScaffold(
       title: 'Second Page',
       body: Center(
         child:

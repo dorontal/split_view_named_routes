@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
-class PageScaffold extends StatelessWidget {
-  const PageScaffold({
+/// Use this scaffold instead of a regular Scaffold when the page using this
+/// scaffold is inside a SplitView, so that the leading menu button of this
+/// scaffold shows up only when the split-view is the large-screen (two-column)
+/// view and when the split-view is in small-screen mode (one-column) then this
+/// scaffold will show a leading menu (hamburger) icon.
+class SplitViewScaffold extends StatelessWidget {
+  const SplitViewScaffold({
     Key? key,
     required this.title,
     this.actions = const [],
