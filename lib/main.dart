@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './app_menu.dart';
+import 'split_view_menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.blueGrey,
       ),
       routes: appRoutes,
       initialRoute: 'page1',

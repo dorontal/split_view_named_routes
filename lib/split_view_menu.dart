@@ -24,11 +24,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import './split_view.dart';
+// import './split_view_menu_page.dart';
 import './first_page.dart';
 import './second_page.dart';
+import './tracktunes_logo.dart';
 
 Widget _makeSplitViewPage(Widget page) => SplitView(
-      menu: const AppMenu(),
+      menu: const SplitViewMenu(header: TracktunesLogo()),
       content: page,
     );
 
@@ -39,22 +41,26 @@ final appRoutes = <String, WidgetBuilder>{
 };
 
 // 1. extend from ConsumerWidget
-class AppMenu extends StatelessWidget {
-  const AppMenu({
+class SplitViewMenu extends StatelessWidget {
+  final Widget? header;
+  // final List<SplitViewMenuPage> menuPages;
+
+  const SplitViewMenu({
     Key? key,
+    this.header,
+    // required this.menuPages,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: <Widget>[
-          for (var pageRoutePath in appRoutes.keys)
-            PageListTile(
-                // 3. pass the selectedpageRoutePath as an argument
-                pageRoutePath: pageRoutePath),
-        ],
-      ),
-    );
+    final List<Widget> children = header == null ? [] : [header!];
+    children.addAll([
+      for (var pageRoutePath in appRoutes.keys)
+        PageListTile(
+            // 3. pass the selectedpageRoutePath as an argument
+            pageRoutePath: pageRoutePath),
+    ]);
+    return Scaffold(body: ListView(children: children));
   }
 }
 
