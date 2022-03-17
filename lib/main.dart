@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'split_view_menu.dart';
+import 'widgets/split_view_menu.dart';
 
 void main() {
   runApp(const MyApp());
