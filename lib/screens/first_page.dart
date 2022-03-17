@@ -1,6 +1,6 @@
 // Just a simple placeholder widget page (this would be something more useful in a real app)
 import 'package:flutter/material.dart';
-import './page_scaffold.dart';
+import '../widgets/page_scaffold.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({

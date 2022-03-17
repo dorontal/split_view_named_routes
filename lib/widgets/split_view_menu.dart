@@ -25,8 +25,8 @@ import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import './split_view.dart';
 // import './split_view_menu_page.dart';
-import './first_page.dart';
-import './second_page.dart';
+import '../screens/first_page.dart';
+import '../screens/second_page.dart';
 import './tracktunes_logo.dart';
 
 Widget _makeSplitViewPage(Widget page) => SplitView(

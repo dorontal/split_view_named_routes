@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './page_scaffold.dart';
+import '../widgets/page_scaffold.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({
