@@ -1,66 +1,3 @@
-/*
-import 'dart:developer' as dev;
-import 'package:flutter/material.dart';
-import '../classes/split_view_page.dart';
-
-/// Widget that becomes a Drawer widget tucked behind the app if the screen
-/// is too small or the left column when the screen is wide enough.
-class SplitViewMenu extends StatelessWidget {
-  final Widget? header;
-  final List<SplitViewPage> menuPages;
-
-  const SplitViewMenu({
-    Key? key,
-    this.header,
-    required this.menuPages,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: <Widget>[
-          for (var menuPage in menuPages) PageSelectorTile(url: menuPage.url!)
-        ],
-      ),
-    );
-  }
-}
-
-class PageSelectorTile extends StatelessWidget {
-  const PageSelectorTile({
-    Key? key,
-    required this.url,
-  }) : super(key: key);
-  final String url;
-  @override
-  Widget build(BuildContext context) {
-    final selectedurl = ModalRoute.of(context)!.settings.name;
-    final selectedPageRoutePath = ModalRoute.of(context)!.settings.name;
-    return ListTile(
-      // show a check icon if the page is currently selected
-      // note: we use Opacity to ensure that all tiles have a leading widget
-      // and all the titles are left-aligned
-      selected: selectedPageRoutePath == url,
-      /*
-      leading: Opacity(
-        opacity: selectedPageRoutePath == url ? 1.0 : 0.0,
-        child: const Icon(Icons.check),
-      ),
-      */
-      title: Text(url),
-      // onTap: () => Navigator.pushNamed(context, url),
-      onTap: () {
-        dev.log('tapped on $url');
-        Navigator.pushNamed(context, url);
-      },
-    );
-  }
-}
-
-
-*/
-
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import './split_view.dart';
@@ -71,7 +8,7 @@ import '../screens/second_page.dart';
 import './tracktunes_logo.dart';
 
 Widget _makeSplitViewPage(Widget page) => SplitView(
-      menu: const SplitViewMenu(header: TracktunesLogo()),
+      menu: SplitViewMenu(header: const TracktunesLogo(), menuPages: menuPages),
       content: page,
     );
 
@@ -101,11 +38,13 @@ class SplitViewMenu extends StatelessWidget {
 }
 
 class PageSelectorTile extends StatelessWidget {
+  final String url;
+
   const PageSelectorTile({
     Key? key,
     required this.url,
   }) : super(key: key);
-  final String url;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
