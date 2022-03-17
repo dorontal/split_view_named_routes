@@ -47,7 +47,7 @@ class SplitView extends StatelessWidget {
             width: menuWidth,
             child: menu,
           ),
-          Container(width: 1, color: Colors.grey[800]),
+          Container(width: 0.5, color: Colors.grey[800]),
           Expanded(child: content),
         ],
       );
