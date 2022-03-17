@@ -29,36 +29,3 @@ class TracktunesLogo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center, children: children));
   }
 }
-
-// Thick:
-// Text('TRACKTUNES', style: GoogleFonts.caveatBrush(
-// Text('TRACKTUNES', style: GoogleFonts.chewy(
-// Text('TRACKTUNES', style: GoogleFonts.londrinaSolid(
-// Text('TRACKTUNES', style: GoogleFonts.jua(
-// Text('TRACKTUNES', style: GoogleFonts.balooThambi(
-
-// Thin:
-// Text('TRACKTUNES', style: GoogleFonts.cousine(
-// Text('TRACKTUNES', style: GoogleFonts.cambay(
-// Text('TRACKTUNES', style: GoogleFonts.overlock(
-// Text('TRACKTUNES', style: GoogleFonts.darkerGrotesque(
-// Text('TRACKTUNES', style: GoogleFonts.montserrat(
-// Text('TRACKTUNES', style: GoogleFonts.syncopate(
-// Text('TRACKTUNES', style: GoogleFonts.amiko(
-// Text('TRACKTUNES', style: GoogleFonts.rambla(
-// Text('TRACKTUNES', style: GoogleFonts.beVietnam(
-// Text('TRACKTUNES', style: GoogleFonts.miriamLibre(
-// Text('TRACKTUNES', style: GoogleFonts.blinker(
-// Text('TRACKTUNES', style: GoogleFonts.fresca(
-// Text('TRACKTUNES', style: GoogleFonts.niramit(
-
-// Italic:
-// Text('TRACKTUNES', style: GoogleFonts.damion(
-// Text('TRACKTUNES', style: GoogleFonts.knewave(
-// Text('TRACKTUNES', style: GoogleFonts.contrailOne(
-
-// Funky:
-// Text('TRACKTUNES', style: GoogleFonts.itim(
-// Text('TRACKTUNES', style: GoogleFonts.averiaLibre(
-// Text('TRACKTUNES', style: GoogleFonts.lilyScriptOne(
-// Text('TRACKTUNES', style: GoogleFonts.dekko(
