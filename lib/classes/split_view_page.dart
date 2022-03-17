@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 /// Supply a non-empty: [url], or one of [menuIcon] and [menuText]
-class SplitViewMenuPage {
+class SplitViewPage {
   final Widget page;
   late final String? url;
   final IconData? menuIcon;
   final String? menuText;
 
-  SplitViewMenuPage({
+  SplitViewPage({
     required this.page,
     this.url,
     this.menuIcon,
