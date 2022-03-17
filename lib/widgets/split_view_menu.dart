@@ -20,15 +20,15 @@ class SplitViewMenu extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: <Widget>[
-          for (var menuPage in menuPages) PageListTile(url: menuPage.url!)
+          for (var menuPage in menuPages) PageSelectorTile(url: menuPage.url!)
         ],
       ),
     );
   }
 }
 
-class PageListTile extends StatelessWidget {
-  const PageListTile({
+class PageSelectorTile extends StatelessWidget {
+  const PageSelectorTile({
     Key? key,
     required this.url,
   }) : super(key: key);
@@ -41,18 +41,18 @@ class PageListTile extends StatelessWidget {
       // show a check icon if the page is currently selected
       // note: we use Opacity to ensure that all tiles have a leading widget
       // and all the titles are left-aligned
-      selected: selectedPageRoutePath == pageRoutePath,
+      selected: selectedPageRoutePath == url,
       /*
       leading: Opacity(
-        opacity: selectedPageRoutePath == pageRoutePath ? 1.0 : 0.0,
+        opacity: selectedPageRoutePath == url ? 1.0 : 0.0,
         child: const Icon(Icons.check),
       ),
       */
-      title: Text(pageRoutePath),
-      // onTap: () => Navigator.pushNamed(context, pageRoutePath),
+      title: Text(url),
+      // onTap: () => Navigator.pushNamed(context, url),
       onTap: () {
-        dev.log('tapped on $pageRoutePath');
-        Navigator.pushNamed(context, pageRoutePath);
+        dev.log('tapped on $url');
+        Navigator.pushNamed(context, url);
       },
     );
   }
@@ -93,43 +93,31 @@ class SplitViewMenu extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final List<Widget> children = header == null ? [] : [header!];
-    children.addAll([
-      for (var pageRoutePath in appRoutes.keys)
-        PageListTile(
-            // 3. pass the selectedPageRoutePath as an argument
-            pageRoutePath: pageRoutePath),
-    ]);
-    return Scaffold(body: ListView(children: children));
-  }
+  Widget build(BuildContext context) => ListView(
+        children: <Widget>[
+          for (var menuPage in menuPages) PageSelectorTile(url: menuPage.url!)
+        ],
+      );
 }
 
-class PageListTile extends StatelessWidget {
-  const PageListTile({
+class PageSelectorTile extends StatelessWidget {
+  const PageSelectorTile({
     Key? key,
-    required this.pageRoutePath,
+    required this.url,
   }) : super(key: key);
-  final String pageRoutePath;
+  final String url;
   @override
   Widget build(BuildContext context) {
-    final selectedPageRoutePath = ModalRoute.of(context)!.settings.name;
     return ListTile(
       // show a check icon if the page is currently selected
       // note: we use Opacity to ensure that all tiles have a leading widget
       // and all the titles are left-aligned
-      selected: selectedPageRoutePath == pageRoutePath,
-      /*
-      leading: Opacity(
-        opacity: selectedPageRoutePath == pageRoutePath ? 1.0 : 0.0,
-        child: const Icon(Icons.check),
-      ),
-      */
-      title: Text(pageRoutePath),
-      // onTap: () => Navigator.pushNamed(context, pageRoutePath),
+      selected: url == ModalRoute.of(context)!.settings.name,
+      title: Text(url),
+      // onTap: () => Navigator.pushNamed(context, url),
       onTap: () {
-        dev.log('tapped on $pageRoutePath');
-        Navigator.pushNamed(context, pageRoutePath);
+        dev.log('tapped on $url');
+        Navigator.pushNamed(context, url);
       },
     );
   }
