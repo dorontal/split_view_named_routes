@@ -77,6 +77,7 @@ class PageListTile extends StatelessWidget {
       // show a check icon if the page is currently selected
       // note: we use Opacity to ensure that all tiles have a leading widget
       // and all the titles are left-aligned
+      selected: selectedpageRoutePath == pageRoutePath,
       leading: Opacity(
         opacity: selectedpageRoutePath == pageRoutePath ? 1.0 : 0.0,
         child: const Icon(Icons.check),
