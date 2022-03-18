@@ -39,10 +39,8 @@ class SelectPageTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentPath = ModalRoute.of(context)!.settings.name;
-    // final selected = menuPage.url == currentPath;
-    final selected = currentPath == '/'
-        ? menuPage.url == menuPages[0].url
-        : menuPage.url == currentPath;
+    final selected =
+        menuPage.url == (currentPath == '/' ? menuPages[0].url : currentPath);
     dev.log(
         'selected: $selected, menuPage.url: ${menuPage.url}, currentPath: $currentPath');
     final color =
