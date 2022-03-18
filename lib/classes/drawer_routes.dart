@@ -8,11 +8,6 @@ class DrawerRoutes {
   final List<MenuPage> menuPages;
 
   final Map<String, MenuPage> _itemsMap = {};
-  String lastRouteUrl = '/';
-
-  bool selected(String url) {
-    return url == (url == '/' ? menuPages[0].url : lastRouteUrl);
-  }
 
   DrawerRoutes({required this.menuPages}) {
     for (var i = 0; i < menuPages.length; i++) {
@@ -24,7 +19,6 @@ class DrawerRoutes {
   Route<dynamic> generateRoute(RouteSettings settings) {
     final MenuPage menuPage =
         settings.name == '/' ? menuPages[0] : _itemsMap[settings.name]!;
-    lastRouteUrl = settings.name!;
     return MaterialPageRoute(
         // passing settings is what sets the URL to the current route
         settings: settings,
