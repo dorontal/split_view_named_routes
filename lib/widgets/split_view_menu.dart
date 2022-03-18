@@ -17,18 +17,18 @@ class SplitViewMenu extends StatelessWidget {
           .add(DrawerHeader(child: header, padding: const EdgeInsets.all(0.0)));
     }
     for (var menuPage in menuPages) {
-      children.add(SelectPageTile(menuPage: menuPage, menuPages: menuPages));
+      children.add(PageSelectionTile(menuPage: menuPage, menuPages: menuPages));
     }
 
     return Scaffold(body: ListView(children: children));
   }
 }
 
-class SelectPageTile extends StatelessWidget {
+class PageSelectionTile extends StatelessWidget {
   final MenuPage menuPage;
   final List<MenuPage> menuPages;
 
-  const SelectPageTile(
+  const PageSelectionTile(
       {Key? key, required this.menuPage, required this.menuPages})
       : super(key: key);
 
