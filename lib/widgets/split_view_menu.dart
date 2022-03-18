@@ -30,12 +30,16 @@ class SplitViewMenu extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-          body: ListView(
-        children: <Widget>[
-          for (var menuPage in menuPages) PageSelectorTile(menuPage: menuPage)
-        ],
-      ));
+  Widget build(BuildContext context) {
+    final children = <Widget>[];
+    if (header != null) {
+      children.add(DrawerHeader(child: header));
+    }
+    for (var menuPage in menuPages) {
+      children.add(PageSelectorTile(menuPage: menuPage));
+    }
+    return Scaffold(body: ListView(children: children));
+  }
 }
 
 class PageSelectorTile extends StatelessWidget {
