@@ -18,7 +18,7 @@ class DrawerRoutes {
   }
 
   Route<dynamic> generateRoute(RouteSettings settings) {
-    MenuPage menuPage =
+    final MenuPage menuPage =
         settings.name == '/' ? menuPages[0] : _itemsMap[settings.name]!;
     lastRouteUrl = settings.name!;
     return MaterialPageRoute(
