@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_split_view_navigation/widgets/split_view.dart';
-import 'package:flutter_split_view_navigation/widgets/tracktunes_logo.dart';
+import 'package:split_view_named_routes/widgets/split_view.dart';
+import 'package:split_view_named_routes/widgets/tracktunes_logo.dart';
 import '../widgets/split_view_menu.dart';
 import 'menu_page.dart';
 
