@@ -1,27 +1,15 @@
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import './split_view.dart';
-import '../classes/split_view_page.dart';
+import '../classes/menu_page.dart';
 import '../constants/menu_pages.dart';
 import '../screens/first_page.dart';
 import '../screens/second_page.dart';
 import './tracktunes_logo.dart';
 
-Widget _makeSplitViewPage(Widget page) => SplitView(
-      menu: SplitViewMenu(header: const TracktunesLogo(), menuPages: menuPages),
-      content: page,
-    );
-
-// a map of ("page name", WidgetBuilder) pairs
-final appRoutes = <String, WidgetBuilder>{
-  'page1': (_) => _makeSplitViewPage(const FirstPage()),
-  'page2': (_) => _makeSplitViewPage(const SecondPage()),
-};
-
-// 1. extend from ConsumerWidget
 class SplitViewMenu extends StatelessWidget {
   final Widget? header;
-  final List<SplitViewPage> menuPages;
+  final List<MenuPage> menuPages;
 
   const SplitViewMenu({
     Key? key,
@@ -44,7 +32,7 @@ class SplitViewMenu extends StatelessWidget {
 }
 
 class PageSelectorTile extends StatelessWidget {
-  final SplitViewPage menuPage;
+  final MenuPage menuPage;
 
   const PageSelectorTile({
     Key? key,

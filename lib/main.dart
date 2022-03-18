@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/split_view_menu.dart';
+import 'package:flutter_split_view_navigation/constants/drawer_routes.dart';
+import 'constants/drawer_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      routes: appRoutes,
-      initialRoute: 'page1',
+      onGenerateRoute: drawerRoutes.generateRoute,
+      initialRoute: '/',
     );
   }
 }
