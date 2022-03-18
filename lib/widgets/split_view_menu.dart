@@ -33,32 +33,40 @@ class SplitViewMenu extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
           body: ListView(
         children: <Widget>[
-          for (var menuPage in menuPages) PageSelectorTile(url: menuPage.url!)
+          for (var menuPage in menuPages) PageSelectorTile(menuPage: menuPage)
         ],
       ));
 }
 
 class PageSelectorTile extends StatelessWidget {
-  final String url;
+  final SplitViewPage menuPage;
 
   const PageSelectorTile({
     Key? key,
-    required this.url,
+    required this.menuPage,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      // show a check icon if the page is currently selected
-      // note: we use Opacity to ensure that all tiles have a leading widget
-      // and all the titles are left-aligned
-      selected: url == ModalRoute.of(context)!.settings.name,
-      title: Text(url),
-      // onTap: () => Navigator.pushNamed(context, url),
-      onTap: () {
-        dev.log('tapped on $url');
-        Navigator.pushNamed(context, url);
-      },
-    );
+    final selected = menuPage.url == ModalRoute.of(context)!.settings.name;
+    final color =
+        selected ? Theme.of(context).colorScheme.primary : Colors.white;
+    return Material(
+        color: Colors.transparent,
+        child: ListTile(
+          // show a check icon if the page is currently selected
+          // note: we use Opacity to ensure that all tiles have a leading widget
+          // and all the titles are left-aligned
+          selected: selected,
+          selectedTileColor: Colors.white10,
+          leading: Icon(menuPage.menuIcon, color: color),
+          title: Text(menuPage.menuText!,
+              style: TextStyle(color: color, fontSize: 16)),
+          // onTap: () => Navigator.pushNamed(context, url),
+          onTap: () {
+            dev.log('tapped on ${menuPage.url}');
+            Navigator.pushNamed(context, menuPage.url!);
+          },
+        ));
   }
 }
