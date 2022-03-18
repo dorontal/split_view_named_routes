@@ -22,7 +22,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // Minor changes by Doron Tal
 
 import 'package:flutter/material.dart';
-import 'split_view_menu.dart';
 
 /// Use this scaffold instead of a regular Scaffold when the page using this
 /// scaffold is inside a SplitView, so that the leading menu button of this
@@ -45,17 +44,13 @@ class SplitViewScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 1. look for an ancestor Scaffold
     final ancestorScaffold = Scaffold.maybeOf(context);
-    // 2. check if it has a drawer
     final hasDrawer = ancestorScaffold != null && ancestorScaffold.hasDrawer;
     return Scaffold(
         appBar: AppBar(
-            // 3. add a non-null leading menu button if we have a drawer
             leading: hasDrawer
                 ? IconButton(
                     icon: const Icon(Icons.menu),
-                    // 4. open the drawer if we have one
                     onPressed: () => ancestorScaffold.openDrawer())
                 : null,
             title: Text(title),
