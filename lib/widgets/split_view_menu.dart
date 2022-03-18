@@ -20,7 +20,7 @@ class SplitViewMenu extends StatelessWidget {
           .add(DrawerHeader(child: header, padding: const EdgeInsets.all(0.0)));
     }
     for (var menuPage in menuPages) {
-      children.add(SelectPageTile(menuPage: menuPage));
+      children.add(SelectPageTile(menuPage: menuPage, menuPages: menuPages));
     }
     return Scaffold(body: ListView(children: children));
   }
@@ -28,16 +28,21 @@ class SplitViewMenu extends StatelessWidget {
 
 class SelectPageTile extends StatelessWidget {
   final MenuPage menuPage;
+  final List<MenuPage> menuPages;
 
   const SelectPageTile({
     Key? key,
     required this.menuPage,
+    required this.menuPages,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final currentPath = ModalRoute.of(context)!.settings.name;
-    final selected = menuPage.url == currentPath;
+    // final selected = menuPage.url == currentPath;
+    final selected = currentPath == '/'
+        ? menuPage.url == menuPages[0].url
+        : menuPage.url == currentPath;
     dev.log(
         'selected: $selected, menuPage.url: ${menuPage.url}, currentPath: $currentPath');
     final color =
