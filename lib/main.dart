@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       onGenerateRoute: drawerRoutes.generateRoute,
-      initialRoute: '/',
     );
   }
 }
