@@ -1,11 +1,6 @@
 import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
-import './split_view.dart';
 import '../classes/menu_page.dart';
-import '../constants/menu_pages.dart';
-import '../screens/first_page.dart';
-import '../screens/second_page.dart';
-import './tracktunes_logo.dart';
 
 class SplitViewMenu extends StatelessWidget {
   final Widget? header;
@@ -25,23 +20,26 @@ class SplitViewMenu extends StatelessWidget {
           .add(DrawerHeader(child: header, padding: const EdgeInsets.all(0.0)));
     }
     for (var menuPage in menuPages) {
-      children.add(PageSelectorTile(menuPage: menuPage));
+      children.add(SelectPageTile(menuPage: menuPage));
     }
     return Scaffold(body: ListView(children: children));
   }
 }
 
-class PageSelectorTile extends StatelessWidget {
+class SelectPageTile extends StatelessWidget {
   final MenuPage menuPage;
 
-  const PageSelectorTile({
+  const SelectPageTile({
     Key? key,
     required this.menuPage,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final selected = menuPage.url == ModalRoute.of(context)!.settings.name;
+    final currentPath = ModalRoute.of(context)!.settings.name;
+    final selected = menuPage.url == currentPath;
+    dev.log(
+        'selected: $selected, menuPage.url: ${menuPage.url}, currentPath: $currentPath');
     final color =
         selected ? Theme.of(context).colorScheme.primary : Colors.white;
     return Material(

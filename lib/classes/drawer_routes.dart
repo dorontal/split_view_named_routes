@@ -10,6 +10,10 @@ class DrawerRoutes {
   final Map<String, MenuPage> _itemsMap = {};
   String lastRouteUrl = '/';
 
+  bool selected(String url) {
+    return url == (url == '/' ? menuPages[0].url : lastRouteUrl);
+  }
+
   DrawerRoutes({required this.menuPages}) {
     for (var i = 0; i < menuPages.length; i++) {
       MenuPage menuPage = menuPages[i];
