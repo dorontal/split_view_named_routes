@@ -20,7 +20,6 @@ class DrawerRoutes {
     final MenuPage menuPage =
         settings.name == '/' ? menuPages[0] : _itemsMap[settings.name]!;
     return MaterialPageRoute(
-        // passing settings is what sets the URL to the current route
         settings: settings,
         builder: (context) => SplitView(
             menu: SplitViewMenu(
