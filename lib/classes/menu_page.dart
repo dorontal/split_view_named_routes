@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Supply a non-empty: [url], or one of [menuIcon] and [menuText]
 class MenuPage {
   final Widget page;
   final String url;
