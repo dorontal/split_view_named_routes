@@ -17,7 +17,8 @@ class SplitViewPage {
       assert(menuText!.isNotEmpty, 'When supplied, [menuText] cannot be empty');
       url ??= menuText!.toLowerCase();
     }
-    // at this point url cannot be empty or null
+    // at this point [url] cannot be empty or null because one must supply
+    // either [url] or ([menuIcon] xor [menuText])
     assert(url!.isNotEmpty, 'Unable to determine [url]');
   }
 }

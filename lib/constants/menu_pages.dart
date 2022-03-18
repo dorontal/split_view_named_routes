@@ -8,7 +8,5 @@ final menuPages = [
   SplitViewPage(
       page: const FirstPage(), menuIcon: Icons.home, menuText: 'Page 1 (home)'),
   SplitViewPage(
-      page: const SecondPage(),
-      menuIcon: Icons.home,
-      menuText: 'Page 1 (home)'),
+      page: const SecondPage(), menuIcon: Icons.home, menuText: 'Page 2'),
 ];
