@@ -5,9 +5,9 @@ const logoImageUrl =
     'https://wg9r5td5e.tracktunes.org/assets/image/tracktunes-logo.png';
 
 class TracktunesLogo extends StatelessWidget {
-  const TracktunesLogo({Key? key, this.showText = true}) : super(key: key);
-
   final bool showText;
+
+  const TracktunesLogo({Key? key, this.showText = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
