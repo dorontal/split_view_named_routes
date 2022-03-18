@@ -50,18 +50,16 @@ class SplitViewScaffold extends StatelessWidget {
     final hasDrawer = ancestorScaffold != null && ancestorScaffold.hasDrawer;
     return Scaffold(
         appBar: AppBar(
-          // 3. add a non-null leading argument if we have a drawer
-          leading: hasDrawer
-              ? IconButton(
-                  icon: const Icon(Icons.menu),
-                  // 4. open the drawer if we have one
-                  onPressed:
-                      hasDrawer ? () => ancestorScaffold.openDrawer() : null,
-                )
-              : null,
-          title: Text(title),
-          actions: actions,
-        ),
+            // 3. add a non-null leading argument if we have a drawer
+            leading: hasDrawer
+                ? IconButton(
+                    icon: const Icon(Icons.menu),
+                    // 4. open the drawer if we have one
+                    onPressed:
+                        hasDrawer ? () => ancestorScaffold.openDrawer() : null)
+                : null,
+            title: Text(title),
+            actions: actions),
         body: body,
         floatingActionButton: floatingActionButton);
   }
