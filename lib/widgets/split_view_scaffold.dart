@@ -29,6 +29,11 @@ import 'package:flutter/material.dart';
 /// view and when the split-view is in small-screen mode (one-column) then this
 /// scaffold will show a leading menu (hamburger) icon.
 class SplitViewScaffold extends StatelessWidget {
+  final String title;
+  final List<Widget> actions;
+  final Widget? body;
+  final Widget? floatingActionButton;
+
   const SplitViewScaffold(
       {Key? key,
       required this.title,
@@ -36,10 +41,6 @@ class SplitViewScaffold extends StatelessWidget {
       this.body,
       this.floatingActionButton})
       : super(key: key);
-  final String title;
-  final List<Widget> actions;
-  final Widget? body;
-  final Widget? floatingActionButton;
 
   @override
   Widget build(BuildContext context) {
