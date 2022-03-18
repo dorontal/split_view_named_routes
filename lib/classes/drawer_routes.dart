@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:split_view_named_routes/widgets/split_view.dart';
-import 'package:split_view_named_routes/widgets/tracktunes_logo.dart';
-import 'menu_page.dart';
+import '../widgets/split_view.dart';
 import '../widgets/split_view_menu.dart';
+import '../widgets/tracktunes_logo.dart';
+import 'menu_page.dart';
 
 class DrawerRoutes {
   final List<MenuPage> menuPages;

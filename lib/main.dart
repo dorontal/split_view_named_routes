@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:split_view_named_routes/constants/drawer_routes.dart';
 import 'constants/drawer_routes.dart';
 
 void main() {
