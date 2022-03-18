@@ -5,7 +5,13 @@ import '../screens/second_page.dart';
 
 final List<SplitViewPage> menuPages = [
   SplitViewPage(
-      page: const FirstPage(), menuIcon: Icons.home, menuText: 'Page 1 (home)'),
+      url: 'page1',
+      page: const FirstPage(),
+      menuIcon: Icons.home,
+      menuText: 'Page 1 (home)'),
   SplitViewPage(
-      page: const SecondPage(), menuIcon: Icons.home, menuText: 'Page 2'),
+      url: 'page2',
+      page: const SecondPage(),
+      menuIcon: Icons.home,
+      menuText: 'Page 2'),
 ];
