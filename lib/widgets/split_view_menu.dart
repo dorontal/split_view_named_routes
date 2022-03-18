@@ -33,7 +33,8 @@ class SplitViewMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final children = <Widget>[];
     if (header != null) {
-      children.add(DrawerHeader(child: header));
+      children
+          .add(DrawerHeader(child: header, padding: const EdgeInsets.all(0.0)));
     }
     for (var menuPage in menuPages) {
       children.add(PageSelectorTile(menuPage: menuPage));
