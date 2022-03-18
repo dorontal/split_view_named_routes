@@ -6,11 +6,8 @@ class SplitViewMenu extends StatelessWidget {
   final Widget? header;
   final List<MenuPage> menuPages;
 
-  const SplitViewMenu({
-    Key? key,
-    this.header,
-    required this.menuPages,
-  }) : super(key: key);
+  const SplitViewMenu({Key? key, this.header, required this.menuPages})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +27,9 @@ class SelectPageTile extends StatelessWidget {
   final MenuPage menuPage;
   final List<MenuPage> menuPages;
 
-  const SelectPageTile({
-    Key? key,
-    required this.menuPage,
-    required this.menuPages,
-  }) : super(key: key);
+  const SelectPageTile(
+      {Key? key, required this.menuPage, required this.menuPages})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

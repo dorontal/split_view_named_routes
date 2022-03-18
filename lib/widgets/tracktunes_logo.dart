@@ -14,6 +14,7 @@ class TracktunesLogo extends StatelessWidget {
     final List<Widget> children = [
       Image.network(logoImageUrl, height: 80.0),
     ];
+
     if (showText) {
       children.addAll([
         const SizedBox(height: 8.0),

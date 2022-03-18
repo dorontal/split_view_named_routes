@@ -13,5 +13,5 @@ final List<MenuPage> menuPages = [
       url: 'page2',
       page: const SecondPage(),
       menuIcon: Icons.table_bar,
-      menuText: 'Second page'),
+      menuText: 'Second page')
 ];
