@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../classes/menu_page.dart';
 
-class SplitViewMenu extends StatelessWidget {
+class AppMenu extends StatelessWidget {
   final Widget? header;
   final List<MenuPage> menuPages;
 
-  const SplitViewMenu({Key? key, this.header, required this.menuPages})
+  const AppMenu({Key? key, this.header, required this.menuPages})
       : super(key: key);
 
   @override

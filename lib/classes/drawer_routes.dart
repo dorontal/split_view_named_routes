@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/split_view.dart';
-import '../widgets/split_view_menu.dart';
+import '../widgets/app_menu.dart';
 import '../widgets/tracktunes_logo.dart';
 import 'menu_page.dart';
 
@@ -22,7 +22,7 @@ class DrawerRoutes {
     return MaterialPageRoute(
         settings: settings,
         builder: (context) => SplitView(
-            menu: SplitViewMenu(
+            menu: AppMenu(
               menuPages: menuPages,
               header: const TracktunesLogo(),
             ),
