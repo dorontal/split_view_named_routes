@@ -5,12 +5,12 @@ import '../services/app_router.dart';
 
 final List<MenuPage> menuPages = [
   MenuPage(
-      url: 'page1',
+      url: 'first-page',
       page: const FirstPage(),
       menuIcon: Icons.home,
       menuText: 'First page'),
   MenuPage(
-      url: 'page2',
+      url: 'second-page',
       page: const SecondPage(),
       menuIcon: Icons.table_bar,
       menuText: 'Second page')
