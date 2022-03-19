@@ -2,14 +2,30 @@ import 'package:flutter/material.dart';
 import '../widgets/split_view.dart';
 import '../widgets/app_menu.dart';
 import '../widgets/tracktunes_logo.dart';
-import 'menu_page.dart';
 
-class AppRoutes {
+class MenuPage {
+  final Widget page;
+  final String url;
+  final IconData menuIcon;
+  final String menuText;
+
+  MenuPage(
+      {required this.page,
+      required this.url,
+      required this.menuIcon,
+      required this.menuText});
+}
+
+class AppRouter {
   final List<MenuPage> menuPages;
 
   final Map<String, MenuPage> _itemsMap = {};
 
-  AppRoutes({required this.menuPages}) {
+  void addRoute(String url, MenuPage menuPage) {
+    _itemsMap[url] = menuPage;
+  }
+
+  AppRouter({required this.menuPages}) {
     for (var i = 0; i < menuPages.length; i++) {
       MenuPage menuPage = menuPages[i];
       _itemsMap[menuPage.url] = menuPage;

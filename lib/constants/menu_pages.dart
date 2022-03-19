@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../classes/menu_page.dart';
 import '../screens/first_page.dart';
 import '../screens/second_page.dart';
+import '../services/app_router.dart';
 
 final List<MenuPage> menuPages = [
   MenuPage(

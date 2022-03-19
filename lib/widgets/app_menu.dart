@@ -1,5 +1,22 @@
 import 'package:flutter/material.dart';
-import '../classes/menu_page.dart';
+import '../providers/app_router.dart';
+import '../services/app_router.dart';
+import '../widgets/split_view.dart';
+
+/*
+class MenuPage {
+  final Widget page;
+  final String url;
+  final IconData menuIcon;
+  final String menuText;
+
+  MenuPage(
+      {required this.page,
+      required this.url,
+      required this.menuIcon,
+      required this.menuText});
+}
+*/
 
 class AppMenu extends StatelessWidget {
   final Widget? header;
@@ -13,10 +30,9 @@ class AppMenu extends StatelessWidget {
     final children = <Widget>[];
 
     if (header != null) {
-      // we add `padding: const EdgeInsets.all(0)`
-      // because without that we get a UI overflow error
       children.add(DrawerHeader(
         child: header,
+        // 'padding: const EdgeInsets.all(0)' prevents a UI overflow error:
         padding: const EdgeInsets.all(0),
       ));
     }
