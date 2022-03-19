@@ -13,7 +13,12 @@ class AppMenu extends StatelessWidget {
     final children = <Widget>[];
 
     if (header != null) {
-      children.add(DrawerHeader(child: header));
+      // we add `padding: const EdgeInsets.all(0)`
+      // because without that we get a UI overflow error
+      children.add(DrawerHeader(
+        child: header,
+        padding: const EdgeInsets.all(0),
+      ));
     }
     for (var menuPage in menuPages) {
       children.add(PageSelectionTile(menuPage: menuPage, menuPages: menuPages));
