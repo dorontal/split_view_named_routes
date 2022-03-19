@@ -4,12 +4,12 @@ import '../widgets/app_menu.dart';
 import '../widgets/tracktunes_logo.dart';
 import 'menu_page.dart';
 
-class DrawerRoutes {
+class AppRoutes {
   final List<MenuPage> menuPages;
 
   final Map<String, MenuPage> _itemsMap = {};
 
-  DrawerRoutes({required this.menuPages}) {
+  AppRoutes({required this.menuPages}) {
     for (var i = 0; i < menuPages.length; i++) {
       MenuPage menuPage = menuPages[i];
       _itemsMap[menuPage.url] = menuPage;
