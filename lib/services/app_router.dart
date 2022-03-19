@@ -21,15 +21,15 @@ class AppRouter {
 
   final Map<String, MenuPage> _itemsMap = {};
 
-  void addRoute(String url, MenuPage menuPage) {
-    _itemsMap[url] = menuPage;
-  }
-
   AppRouter({required this.menuPages}) {
     for (var i = 0; i < menuPages.length; i++) {
       MenuPage menuPage = menuPages[i];
       _itemsMap[menuPage.url] = menuPage;
     }
+  }
+
+  void addRoute(String url, MenuPage menuPage) {
+    _itemsMap[url] = menuPage;
   }
 
   Route<dynamic> generateRoute(RouteSettings settings) {
