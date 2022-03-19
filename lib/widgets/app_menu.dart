@@ -1,22 +1,5 @@
 import 'package:flutter/material.dart';
-import '../providers/app_router.dart';
 import '../services/app_router.dart';
-import '../widgets/split_view.dart';
-
-/*
-class MenuPage {
-  final Widget page;
-  final String url;
-  final IconData menuIcon;
-  final String menuText;
-
-  MenuPage(
-      {required this.page,
-      required this.url,
-      required this.menuIcon,
-      required this.menuText});
-}
-*/
 
 class AppMenu extends StatelessWidget {
   final Widget? header;
