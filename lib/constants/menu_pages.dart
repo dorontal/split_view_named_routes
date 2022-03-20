@@ -16,12 +16,3 @@ final List<MenuPage> menuPages = [
       menuIcon: Icons.person,
       menuText: 'Second page')
 ];
-
-final List<MenuPage> lowerMenuPages = [
-  MenuPage(
-      menuIcon: Icons.mouse,
-      menuText: 'Click me',
-      menuAction: (context) {
-        showOKAlert(context, message: 'Clicked!');
-      })
-];

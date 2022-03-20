@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../classes/menu_page.dart';
 
 /// Reusable menu
-class Menu extends StatelessWidget {
+class Menu extends ConsumerWidget {
   final Widget? header;
   final List<MenuPage> menuPages;
-  final List<MenuPage>? lowerMenuPages;
+  final List<Function>? lowerMenuBuilders;
 
   const Menu({
     Key? key,
     this.header,
     required this.menuPages,
-    this.lowerMenuPages,
+    this.lowerMenuBuilders,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final children = <Widget>[];
 
     if (header != null) {
@@ -26,12 +27,9 @@ class Menu extends StatelessWidget {
       children.add(PageSelectionTile(menuPage: menuPage, menuPages: menuPages));
     }
 
-    if (lowerMenuPages != null) {
+    if (lowerMenuBuilders != null) {
       children.add(const Divider());
-      for (var menuPage in lowerMenuPages!) {
-        children
-            .add(PageSelectionTile(menuPage: menuPage, menuPages: menuPages));
-      }
+      children.addAll(lowerMenuBuilders!.map((f) => f(context, ref)));
     }
 
     return Scaffold(body: ListView(children: children));
