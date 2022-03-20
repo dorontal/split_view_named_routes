@@ -11,7 +11,13 @@ class AppRouter {
   final List<MenuPage> menuPages;
   final List<MenuPage>? menuPages2;
 
-  final Map<String, MenuPage> _itemsMap = {};
+  final Map<String, Widget> _itemsMap = {};
+
+  void _addItemsMap(MenuPage menuPage) {
+    if (menuPage.menuAction == null) {
+      _itemsMap[menuPage.url!] = menuPage.page!;
+    }
+  }
 
   AppRouter({
     this.headerPage,
@@ -20,20 +26,16 @@ class AppRouter {
     this.menuPages2,
   }) {
     if (headerPage != null) {
-      _itemsMap[headerUrl!] = MenuPage(page: headerPage!, url: headerUrl!);
+      _itemsMap[headerUrl!] = headerPage!;
     }
 
     for (var menuPage in menuPages) {
-      if (menuPage.menuAction == null) {
-        _itemsMap[menuPage.url!] = menuPage;
-      }
+      _addItemsMap(menuPage);
     }
 
     if (menuPages2 != null) {
       for (var menuPage in menuPages2!) {
-        if (menuPage.menuAction == null) {
-          _itemsMap[menuPage.url!] = menuPage;
-        }
+        _addItemsMap(menuPage);
       }
     }
   }
@@ -41,7 +43,7 @@ class AppRouter {
   Route<dynamic> generateRoute(RouteSettings settings) {
     final url = settings.name;
     final Widget page =
-        url == '/' ? menuPages[0].page! : _itemsMap[settings.name]!.page!;
+        url == '/' ? menuPages[0].page! : _itemsMap[settings.name]!;
     return MaterialPageRoute(
         settings: settings,
         builder: (context) => SplitView(
