@@ -18,7 +18,10 @@ class MyApp extends ConsumerWidget {
     final appRouter = ref.watch(appRouterProvider);
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark(),
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.deepOrange,
+        ),
         onGenerateRoute: appRouter.generateRoute);
   }
 }

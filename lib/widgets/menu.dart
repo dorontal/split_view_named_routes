@@ -20,7 +20,7 @@ class Menu extends ConsumerWidget {
     final children = <Widget>[];
 
     if (header != null) {
-      children.add(header!);
+      children.addAll([header!, const Divider()]);
     }
 
     for (var menuPage in menuPages) {
