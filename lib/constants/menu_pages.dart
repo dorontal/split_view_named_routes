@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:split_view_named_routes/widgets/ok_alert.dart';
 import '../screens/first.dart';
 import '../screens/last.dart';
 import '../screens/second.dart';
@@ -21,6 +22,9 @@ final List<MenuPage> menuPages2 = [
   MenuPage(
       url: 'last-page',
       page: const Last(),
-      menuIcon: Icons.home,
-      menuText: 'Last page')
+      menuIcon: Icons.last_page_rounded,
+      menuText: 'Last page',
+      menuAction: (context) {
+        showOKAlert(context, message: 'Clicked on last page!');
+      })
 ];
