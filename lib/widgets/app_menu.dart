@@ -11,7 +11,6 @@ class AppMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final children = <Widget>[];
-
     if (header != null) {
       children.add(DrawerHeader(
         child: header,
