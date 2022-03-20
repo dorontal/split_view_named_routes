@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/about_header.dart';
+import '../widgets/app_menu_header.dart';
 import '../widgets/menu.dart';
 import '../widgets/split_view.dart';
 
@@ -48,7 +48,7 @@ class AppRouter {
               menu: Menu(
                   menuPages: menuPages,
                   menuPages2: menuPages2,
-                  header: const AboutHeader()),
+                  header: const AppMenuHeader()),
               content: page,
             ));
   }
