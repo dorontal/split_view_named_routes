@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../classes/menu_page.dart';
 
 /// Reusable menu class to fill a drawer or a left side column of the app
-class AppMenu extends StatelessWidget {
+class Menu extends StatelessWidget {
   final Widget? header;
   final List<MenuPage> menuPages;
 
-  const AppMenu({Key? key, this.header, required this.menuPages})
+  const Menu({Key? key, this.header, required this.menuPages})
       : super(key: key);
 
   @override

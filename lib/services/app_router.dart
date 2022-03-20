@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../classes/menu_page.dart';
 import '../widgets/about_header.dart';
 import '../widgets/split_view.dart';
-import '../widgets/app_menu.dart';
+import '../widgets/menu.dart';
 
 // Router service for the demo app - this service is meant to be used as
 // as singleton, provided via Riverpod
@@ -30,7 +30,7 @@ class AppRouter {
     return MaterialPageRoute(
         settings: settings,
         builder: (context) => SplitView(
-              menu: AppMenu(menuPages: menuPages, header: const AboutHeader()),
+              menu: Menu(menuPages: menuPages, header: const AboutHeader()),
               content: page,
             ));
   }
