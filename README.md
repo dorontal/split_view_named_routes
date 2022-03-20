@@ -7,5 +7,5 @@ a mobile phone.
 This app also demonstrates using named routes.
 
 Uses Andrea Bizzotto's [split_view.dart class](lib/widgets/split_view.dart) 
-and [split_view_scaffold.dart class](lib/widgets/split_view_scaffold.dart)
-- see the corresponsing copyright notice in those files.
+and [split_view_scaffold.dart](lib/widgets/split_view_scaffold.dart)
+classes. See the corresponsing copyright notice in those files.
