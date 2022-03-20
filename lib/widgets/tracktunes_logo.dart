@@ -20,7 +20,7 @@ class TracktunesLogo extends StatelessWidget {
 
     if (showText) {
       children.addAll([
-        const SizedBox(height: 8.0),
+        const SizedBox(height: 4.0),
         Text('TRACKTUNES',
             style: GoogleFonts.blinker(
                 fontSize: 24, fontWeight: FontWeight.w200, letterSpacing: 0))
