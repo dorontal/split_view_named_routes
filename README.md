@@ -1,16 +1,11 @@
 # split_view_named_routes
 
-A new Flutter project.
+A split view app that shows up in two columns if screen is wide enough or
+in one column with a hamburger menu if the screen is small as when using 
+a mobile phone.
 
-## Getting Started
+This app also demonstrates using named routes.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Uses Andrea Bizzotto's `split_view.dart class` and
+`split_view_scaffold.dart` - see the corresponsing copyright notice in
+those files.
