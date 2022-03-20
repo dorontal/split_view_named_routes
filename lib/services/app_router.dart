@@ -23,11 +23,16 @@ class MenuPage {
 }
 
 class AppRouter {
+  final Widget? headerPage;
+  final String? headerUrl;
   final List<MenuPage> menuPages;
 
   final Map<String, MenuPage> _itemsMap = {};
 
-  AppRouter({required this.menuPages}) {
+  AppRouter({this.headerPage, this.headerUrl, required this.menuPages}) {
+    if (headerPage != null) {
+      _itemsMap[headerUrl!] = MenuPage(page: headerPage!, url: headerUrl!);
+    }
     for (var i = 0; i < menuPages.length; i++) {
       addRoute(menuPages[i]);
     }
