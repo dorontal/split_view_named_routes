@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../about.dart';
+import '../screens/about.dart';
 import '../constants/menu_pages.dart';
 import '../services/app_router.dart';
 
