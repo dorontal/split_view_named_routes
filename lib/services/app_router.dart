@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../classes/menu_page.dart';
 import '../widgets/app_menu_header.dart';
 import '../widgets/menu.dart';
 import '../widgets/split_view.dart';

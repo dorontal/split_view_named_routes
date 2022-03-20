@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:split_view_named_routes/widgets/ok_alert.dart';
+import '../classes/menu_page.dart';
 import '../screens/first.dart';
 import '../screens/second.dart';
-import '../widgets/menu.dart' show MenuPage;
 
 final List<MenuPage> menuPages = [
   MenuPage(
