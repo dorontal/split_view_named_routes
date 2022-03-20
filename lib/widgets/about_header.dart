@@ -10,7 +10,10 @@ class AboutHeader extends StatelessWidget {
     return DrawerHeader(
         child: InkWell(
       onTap: () {
-        Navigator.pushNamed(context, headerUrl);
+        final currentPath = ModalRoute.of(context)!.settings.name;
+        if (currentPath != headerUrl) {
+          Navigator.pushNamed(context, headerUrl);
+        }
       },
       child: const TracktunesLogo(),
     ));
