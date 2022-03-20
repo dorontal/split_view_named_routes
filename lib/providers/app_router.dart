@@ -5,4 +5,8 @@ import '../constants/menu_pages.dart';
 import '../services/app_router.dart';
 
 final appRouterProvider = Provider<AppRouter>((_) => AppRouter(
-    headerPage: const About(), headerUrl: headerUrl, menuPages: menuPages));
+      headerPage: const About(),
+      headerUrl: headerUrl,
+      menuPages: menuPages,
+      menuPages2: menuPages2,
+    ));
