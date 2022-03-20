@@ -26,10 +26,7 @@ class TracktunesLogo extends StatelessWidget {
                 fontSize: 24, fontWeight: FontWeight.w200, letterSpacing: 0))
       ]);
     }
-
-    return Padding(
-        padding: const EdgeInsets.all(0),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, children: children));
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center, children: children);
   }
 }
