@@ -19,9 +19,9 @@ final List<MenuPage> menuPages = [
 
 final List<MenuPage> menuPages2 = [
   MenuPage(
-      menuIcon: Icons.last_page_rounded,
+      menuIcon: Icons.mouse,
       menuText: 'Click me',
       menuAction: (context) {
-        showOKAlert(context, message: 'Clicked me!');
+        showOKAlert(context, message: 'Clicked!');
       })
 ];
