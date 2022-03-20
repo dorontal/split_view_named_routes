@@ -10,7 +10,7 @@ class AppRouter {
   final Widget? headerPage;
   final String? headerUrl;
   final List<MenuPage> menuPages;
-  final List<MenuPage>? menuPages2;
+  final List<MenuPage>? lowerMenuPages;
 
   final Map<String, Widget> _itemsMap = {};
 
@@ -24,7 +24,7 @@ class AppRouter {
     this.headerPage,
     this.headerUrl,
     required this.menuPages,
-    this.menuPages2,
+    this.lowerMenuPages,
   }) {
     if (headerPage != null) {
       _itemsMap[headerUrl!] = headerPage!;
@@ -34,8 +34,8 @@ class AppRouter {
       _addItemsMap(menuPage);
     }
 
-    if (menuPages2 != null) {
-      for (var menuPage in menuPages2!) {
+    if (lowerMenuPages != null) {
+      for (var menuPage in lowerMenuPages!) {
         _addItemsMap(menuPage);
       }
     }
@@ -51,7 +51,7 @@ class AppRouter {
               menu: Menu(
                 header: const AppMenuHeader(),
                 menuPages: menuPages,
-                menuPages2: menuPages2,
+                lowerMenuPages: lowerMenuPages,
               ),
               content: page,
             ));
