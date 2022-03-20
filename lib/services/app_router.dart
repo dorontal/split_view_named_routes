@@ -46,9 +46,10 @@ class AppRouter {
         settings: settings,
         builder: (context) => SplitView(
               menu: Menu(
-                  menuPages: menuPages,
-                  menuPages2: menuPages2,
-                  header: const AppMenuHeader()),
+                header: const AppMenuHeader(),
+                menuPages: menuPages,
+                menuPages2: menuPages2,
+              ),
               content: page,
             ));
   }
