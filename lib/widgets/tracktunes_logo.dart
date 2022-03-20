@@ -25,7 +25,8 @@ class TracktunesLogo extends StatelessWidget {
     }
 
     return Padding(
-        padding: const EdgeInsets.fromLTRB(0, 16, 0, 12),
+        // padding: const EdgeInsets.fromLTRB(0, 16, 0, 12),
+        padding: const EdgeInsets.all(0),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, children: children));
   }
