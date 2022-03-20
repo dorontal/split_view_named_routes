@@ -34,13 +34,13 @@ class SplitViewScaffold extends StatelessWidget {
   final Widget? body;
   final Widget? floatingActionButton;
 
-  const SplitViewScaffold(
-      {Key? key,
-      required this.title,
-      this.actions = const [],
-      this.body,
-      this.floatingActionButton})
-      : super(key: key);
+  const SplitViewScaffold({
+    Key? key,
+    required this.title,
+    this.actions = const [],
+    this.body,
+    this.floatingActionButton,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

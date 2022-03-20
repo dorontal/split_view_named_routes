@@ -7,7 +7,10 @@ const logoImageUrl =
 class TracktunesLogo extends StatelessWidget {
   final bool showText;
 
-  const TracktunesLogo({Key? key, this.showText = true}) : super(key: key);
+  const TracktunesLogo({
+    Key? key,
+    this.showText = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

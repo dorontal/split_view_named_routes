@@ -29,13 +29,13 @@ class SplitView extends StatelessWidget {
   final double breakpoint;
   final double menuWidth;
 
-  const SplitView(
-      {Key? key,
-      required this.menu,
-      required this.content,
-      this.breakpoint = 600,
-      this.menuWidth = 240})
-      : super(key: key);
+  const SplitView({
+    Key? key,
+    required this.menu,
+    required this.content,
+    this.breakpoint = 600,
+    this.menuWidth = 240,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
