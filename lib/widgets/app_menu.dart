@@ -50,7 +50,7 @@ class PageSelectionTile extends StatelessWidget {
             selected: selected,
             selectedTileColor: Colors.white10,
             leading: Icon(menuPage.menuIcon, color: color),
-            title: Text(menuPage.menuText,
+            title: Text(menuPage.menuText!,
                 style: TextStyle(color: color, fontSize: 16)),
             onTap: () {
               Navigator.pushNamed(context, menuPage.url);
