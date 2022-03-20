@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../classes/menu_page.dart';
-import '../widgets/app_menu_header.dart';
+import '../widgets/about_header.dart';
 import '../widgets/split_view.dart';
 import '../widgets/app_menu.dart';
 
@@ -30,8 +30,7 @@ class AppRouter {
     return MaterialPageRoute(
         settings: settings,
         builder: (context) => SplitView(
-              menu:
-                  AppMenu(menuPages: menuPages, header: const AppMenuHeader()),
+              menu: AppMenu(menuPages: menuPages, header: const AboutHeader()),
               content: page,
             ));
   }
