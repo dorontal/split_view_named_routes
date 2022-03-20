@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+
 import '../classes/menu_page.dart';
 import '../widgets/app_menu_header.dart';
 import '../widgets/menu.dart';
 import '../widgets/split_view.dart';
 
-// Router service for the demo app - this service is meant to be used as
-// as singleton, provided via Riverpod
+// Router service, meant to be used as a singleton, provided via Riverpod
 class AppRouter {
   final Widget? headerPage;
   final String? headerUrl;
@@ -25,8 +25,12 @@ class AppRouter {
     }
 
     for (var menuPage in menuPages) {
-      if (menuPage.menuAction == null) {
-        _itemsMap[menuPage.url!] = menuPage.page!;
+      _addItemsMap(menuPage);
+    }
+
+    if (lowerMenuPages != null) {
+      for (var menuPage in lowerMenuPages!) {
+        _addItemsMap(menuPage);
       }
     }
   }
@@ -45,5 +49,11 @@ class AppRouter {
               ),
               content: page,
             ));
+  }
+
+  void _addItemsMap(MenuPage menuPage) {
+    if (menuPage.menuAction == null) {
+      _itemsMap[menuPage.url!] = menuPage.page!;
+    }
   }
 }
