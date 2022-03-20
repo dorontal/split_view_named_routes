@@ -1,9 +1,8 @@
+import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
-import '../about.dart';
+import '../widgets/app_menu_header.dart';
 import '../widgets/split_view.dart';
 import '../widgets/app_menu.dart';
-
-const headerUrl = 'header';
 
 class MenuPage {
   final Widget page;
@@ -19,28 +18,27 @@ class AppRouter {
   final List<MenuPage> menuPages;
 
   final Map<String, MenuPage> _itemsMap = {};
-  final _header = const About();
 
   AppRouter({required this.menuPages}) {
     for (var i = 0; i < menuPages.length; i++) {
-      MenuPage menuPage = menuPages[i];
-      _itemsMap[menuPage.url] = menuPage;
+      addRoute(menuPages[i]);
     }
   }
 
-  void addRoute(String url, MenuPage menuPage) {
-    assert(url != headerUrl);
-    _itemsMap[url] = menuPage;
+  void addRoute(MenuPage menuPage) {
+    dev.log('adding route ${menuPage.url}');
+    dev.inspect(menuPage);
+    _itemsMap[menuPage.url] = menuPage;
   }
 
   Route<dynamic> generateRoute(RouteSettings settings) {
     final url = settings.name;
-    final Widget page = url == headerUrl
-        ? _header
-        : (url == '/' ? menuPages[0].page : _itemsMap[settings.name]!.page);
+    final Widget page =
+        url == '/' ? menuPages[0].page : _itemsMap[settings.name]!.page;
     return MaterialPageRoute(
         settings: settings,
-        builder: (context) =>
-            SplitView(menu: AppMenu(menuPages: menuPages), content: page));
+        builder: (context) => SplitView(
+            menu: AppMenu(menuPages: menuPages, header: const AppMenuHeader()),
+            content: page));
   }
 }

@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 import '../services/app_router.dart';
-import '../widgets/tracktunes_logo.dart';
 
 class AppMenu extends StatelessWidget {
+  final Widget? header;
   final List<MenuPage> menuPages;
 
-  const AppMenu({Key? key, required this.menuPages}) : super(key: key);
+  const AppMenu({Key? key, this.header, required this.menuPages})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final children = <Widget>[];
 
-    children.add(DrawerHeader(
-        child: InkWell(
-      onTap: () {
-        Navigator.of(context).pop();
-        Navigator.pushNamed(context, 'header');
-      },
-      child: const TracktunesLogo(),
-    )));
+    if (header != null) {
+      children.add(header!);
+    }
 
     for (var menuPage in menuPages) {
       children.add(PageSelectionTile(menuPage: menuPage, menuPages: menuPages));
