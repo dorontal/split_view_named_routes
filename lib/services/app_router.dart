@@ -34,16 +34,18 @@ class AppRouter {
       _itemsMap[headerUrl!] = MenuPage(page: headerPage!, url: headerUrl!);
     }
     for (var i = 0; i < menuPages.length; i++) {
-      addRoute(menuPages[i]);
+      final menuPage = menuPages[i];
+      //      addRoute(menuPages[i]);
+      _itemsMap[menuPage.url] = menuPage;
     }
   }
-
+  /*
   void addRoute(MenuPage menuPage) {
     dev.log('adding route ${menuPage.url}');
     dev.inspect(menuPage);
     _itemsMap[menuPage.url] = menuPage;
   }
-
+*/
   Route<dynamic> generateRoute(RouteSettings settings) {
     final url = settings.name;
     final Widget page =
