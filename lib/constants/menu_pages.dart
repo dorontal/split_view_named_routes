@@ -13,7 +13,7 @@ final List<MenuPage> menuPages = [
   MenuPage(
       url: 'second-page',
       page: const Second(),
-      menuIcon: Icons.table_bar,
+      menuIcon: Icons.person,
       menuText: 'Second page')
 ];
 
