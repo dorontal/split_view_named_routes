@@ -20,9 +20,14 @@ class MenuPage {
 class Menu extends StatelessWidget {
   final Widget? header;
   final List<MenuPage> menuPages;
+  final List<MenuPage>? menuPages2;
 
-  const Menu({Key? key, this.header, required this.menuPages})
-      : super(key: key);
+  const Menu({
+    Key? key,
+    this.header,
+    required this.menuPages,
+    this.menuPages2,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +39,14 @@ class Menu extends StatelessWidget {
 
     for (var menuPage in menuPages) {
       children.add(PageSelectionTile(menuPage: menuPage, menuPages: menuPages));
+    }
+
+    if (menuPages2 != null) {
+      children.add(const Divider());
+      for (var menuPage in menuPages2!) {
+        children
+            .add(PageSelectionTile(menuPage: menuPage, menuPages: menuPages));
+      }
     }
 
     return Scaffold(body: ListView(children: children));
