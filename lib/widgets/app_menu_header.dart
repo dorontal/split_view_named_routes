@@ -17,7 +17,6 @@ class AppMenuHeader extends ConsumerWidget {
     return DrawerHeader(
         child: InkWell(
       onTap: () {
-        // Navigator.of(context).pop();
         Navigator.pushNamed(context, _aboutPageUrl);
       },
       child: const TracktunesLogo(),
