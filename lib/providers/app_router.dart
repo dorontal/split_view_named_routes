@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:split_view_named_routes/constants/header_url.dart';
-import '../screens/about.dart';
+import '../constants/header_url.dart';
 import '../constants/menu_pages.dart';
+import '../screens/about.dart';
 import '../services/app_router.dart';
 
 final appRouterProvider = Provider<AppRouter>((_) => AppRouter(
