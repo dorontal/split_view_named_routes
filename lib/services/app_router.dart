@@ -38,7 +38,9 @@ class AppRouter {
     return MaterialPageRoute(
         settings: settings,
         builder: (context) => SplitView(
-            menu: AppMenu(menuPages: menuPages, header: const AppMenuHeader()),
-            content: page));
+              menu:
+                  AppMenu(menuPages: menuPages, header: const AppMenuHeader()),
+              content: page,
+            ));
   }
 }
