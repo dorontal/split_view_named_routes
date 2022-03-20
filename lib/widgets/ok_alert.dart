@@ -4,6 +4,11 @@ const double defaultWidth = 280;
 const double defaultHeight = 440;
 
 class OKAlert extends StatelessWidget {
+  final String message;
+  final String? title;
+  final double width;
+  final double height;
+
   const OKAlert({
     Key? key,
     required this.message,
@@ -11,11 +16,6 @@ class OKAlert extends StatelessWidget {
     this.width = defaultWidth,
     this.height = defaultHeight,
   }) : super(key: key);
-
-  final String message;
-  final String? title;
-  final double width;
-  final double height;
 
   @override
   Widget build(BuildContext context) {
