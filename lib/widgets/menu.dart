@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class MenuPage {
-  final Widget page;
-  final String url;
+  final Widget? page;
+  final String? url;
   final IconData? menuIcon;
   final String? menuText;
   final Function? menuAction;
 
   MenuPage({
-    required this.page,
-    required this.url,
+    this.page,
+    this.url,
     this.menuIcon,
     this.menuText,
     this.menuAction,
@@ -79,7 +79,11 @@ class PageSelectionTile extends StatelessWidget {
                 style: TextStyle(color: color, fontSize: 16)),
             onTap: () {
               if (!selected) {
-                Navigator.pushNamed(context, menuPage.url);
+                if (menuPage.menuAction != null) {
+                  menuPage.menuAction!(context);
+                } else {
+                  Navigator.pushNamed(context, menuPage.url!);
+                }
               }
             }));
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:split_view_named_routes/constants/menu_pages.dart';
 import '../widgets/about_header.dart';
 import '../widgets/menu.dart';
 import '../widgets/split_view.dart';
@@ -25,12 +24,16 @@ class AppRouter {
     }
 
     for (var menuPage in menuPages) {
-      _itemsMap[menuPage.url] = menuPage;
+      if (menuPage.menuAction == null) {
+        _itemsMap[menuPage.url!] = menuPage;
+      }
     }
 
     if (menuPages2 != null) {
       for (var menuPage in menuPages2!) {
-        _itemsMap[menuPage.url] = menuPage;
+        if (menuPage.menuAction == null) {
+          _itemsMap[menuPage.url!] = menuPage;
+        }
       }
     }
   }
@@ -38,7 +41,7 @@ class AppRouter {
   Route<dynamic> generateRoute(RouteSettings settings) {
     final url = settings.name;
     final Widget page =
-        url == '/' ? menuPages[0].page : _itemsMap[settings.name]!.page;
+        url == '/' ? menuPages[0].page! : _itemsMap[settings.name]!.page!;
     return MaterialPageRoute(
         settings: settings,
         builder: (context) => SplitView(
