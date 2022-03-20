@@ -8,5 +8,5 @@ final appRouterProvider = Provider<AppRouter>((_) => AppRouter(
       headerPage: const About(),
       headerUrl: headerUrl,
       menuPages: menuPages,
-      menuPages2: menuPages2,
+      lowerMenuPages: lowerMenuPages,
     ));

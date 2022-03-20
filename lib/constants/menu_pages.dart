@@ -17,7 +17,7 @@ final List<MenuPage> menuPages = [
       menuText: 'Second page')
 ];
 
-final List<MenuPage> menuPages2 = [
+final List<MenuPage> lowerMenuPages = [
   MenuPage(
       menuIcon: Icons.mouse,
       menuText: 'Click me',
