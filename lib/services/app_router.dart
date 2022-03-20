@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:split_view_named_routes/constants/menu_pages.dart';
 import '../widgets/about_header.dart';
 import '../widgets/menu.dart';
 import '../widgets/split_view.dart';
@@ -9,16 +10,28 @@ class AppRouter {
   final Widget? headerPage;
   final String? headerUrl;
   final List<MenuPage> menuPages;
+  final List<MenuPage>? menuPages2;
 
   final Map<String, MenuPage> _itemsMap = {};
 
-  AppRouter({this.headerPage, this.headerUrl, required this.menuPages}) {
+  AppRouter({
+    this.headerPage,
+    this.headerUrl,
+    required this.menuPages,
+    this.menuPages2,
+  }) {
     if (headerPage != null) {
       _itemsMap[headerUrl!] = MenuPage(page: headerPage!, url: headerUrl!);
     }
-    for (var i = 0; i < menuPages.length; i++) {
-      final menuPage = menuPages[i];
+
+    for (var menuPage in menuPages) {
       _itemsMap[menuPage.url] = menuPage;
+    }
+
+    if (menuPages2 != null) {
+      for (var menuPage in menuPages2!) {
+        _itemsMap[menuPage.url] = menuPage;
+      }
     }
   }
 
@@ -29,7 +42,10 @@ class AppRouter {
     return MaterialPageRoute(
         settings: settings,
         builder: (context) => SplitView(
-              menu: Menu(menuPages: menuPages, header: const AboutHeader()),
+              menu: Menu(
+                  menuPages: menuPages,
+                  menuPages2: menuPages2,
+                  header: const AboutHeader()),
               content: page,
             ));
   }

@@ -23,4 +23,4 @@ final List<MenuPage> menuPages2 = [
       page: const Last(),
       menuIcon: Icons.home,
       menuText: 'Last page')
-}
+];
