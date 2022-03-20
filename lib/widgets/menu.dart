@@ -1,5 +1,20 @@
 import 'package:flutter/material.dart';
-import '../classes/menu_page.dart';
+
+class MenuPage {
+  final Widget page;
+  final String url;
+  final IconData? menuIcon;
+  final String? menuText;
+  final Function? menuAction;
+
+  MenuPage({
+    required this.page,
+    required this.url,
+    this.menuIcon,
+    this.menuText,
+    this.menuAction,
+  });
+}
 
 /// Reusable menu class to fill a drawer or a left side column of the app
 class Menu extends StatelessWidget {

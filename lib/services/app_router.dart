@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../classes/menu_page.dart';
 import '../widgets/about_header.dart';
-import '../widgets/split_view.dart';
 import '../widgets/menu.dart';
+import '../widgets/split_view.dart';
 
 // Router service for the demo app - this service is meant to be used as
 // as singleton, provided via Riverpod
