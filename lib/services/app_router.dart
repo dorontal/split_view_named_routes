@@ -25,12 +25,8 @@ class AppRouter {
     }
 
     for (var menuPage in menuPages) {
-      _addItemsMap(menuPage);
-    }
-
-    if (lowerMenuPages != null) {
-      for (var menuPage in lowerMenuPages!) {
-        _addItemsMap(menuPage);
+      if (menuPage.menuAction == null) {
+        _itemsMap[menuPage.url!] = menuPage.page!;
       }
     }
   }
@@ -49,11 +45,5 @@ class AppRouter {
               ),
               content: page,
             ));
-  }
-
-  void _addItemsMap(MenuPage menuPage) {
-    if (menuPage.menuAction == null) {
-      _itemsMap[menuPage.url!] = menuPage.page!;
-    }
   }
 }
