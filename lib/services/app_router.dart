@@ -4,6 +4,8 @@ import '../widgets/app_menu_header.dart';
 import '../widgets/split_view.dart';
 import '../widgets/app_menu.dart';
 
+// Router service for the demo app - this service is meant to be used as
+// as singleton, provided via Riverpod
 class AppRouter {
   final Widget? headerPage;
   final String? headerUrl;
@@ -17,17 +19,10 @@ class AppRouter {
     }
     for (var i = 0; i < menuPages.length; i++) {
       final menuPage = menuPages[i];
-      //      addRoute(menuPages[i]);
       _itemsMap[menuPage.url] = menuPage;
     }
   }
-  /*
-  void addRoute(MenuPage menuPage) {
-    dev.log('adding route ${menuPage.url}');
-    dev.inspect(menuPage);
-    _itemsMap[menuPage.url] = menuPage;
-  }
-*/
+
   Route<dynamic> generateRoute(RouteSettings settings) {
     final url = settings.name;
     final Widget page =
