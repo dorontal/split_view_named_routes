@@ -48,9 +48,7 @@ Future<OKAlert?> showOKAlert(BuildContext context,
     double height = defaultHeight}) {
   return showDialog<OKAlert>(
       context: context,
-      // useRootNavigator: false,
       barrierDismissible: false,
-      // builder: (BuildContext context) => OKAlert(
       builder: (_) => OKAlert(
           message: message, title: title, width: width, height: height));
 }
