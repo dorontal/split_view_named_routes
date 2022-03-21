@@ -6,12 +6,12 @@ import '../screens/second.dart';
 
 final List<MenuPage> menuPages = [
   MenuPage(
-      url: 'first-page',
+      url: '/first-page',
       page: const First(),
       menuIcon: Icons.home,
       menuText: 'First page'),
   MenuPage(
-      url: 'second-page',
+      url: '/second-page',
       page: const Second(),
       menuIcon: Icons.person,
       menuText: 'Second page')
